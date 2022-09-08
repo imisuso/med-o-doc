@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('full_name')->nullable();
             $table->string('office_name')->nullable();
             $table->enum('is_admin', ['1', '0']);
-            $table->enum('status', ['Active', 'Disable']);
+            $table->enum('status', ['1', '0']);
             $table->timestamps();
         });
     }
