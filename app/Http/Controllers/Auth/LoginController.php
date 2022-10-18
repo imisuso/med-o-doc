@@ -85,7 +85,7 @@ class LoginController extends Controller
                $validated['url'] = URL::current();
                $validated['method'] = $request->method();
                $validated['user_agent'] = $request->header('user-agent');
-               $validated['date_time'] = date('d-m-Y H:i:s');
+               $validated['date_time'] = date('Y-m-d H:i:s');
                LogActivity::insert($validated);
 
                Log::info(Auth::user()->full_name . ' เข้าสู่ระบบสำเร็จ');
@@ -130,7 +130,7 @@ class LoginController extends Controller
       $validated['url'] = URL::current();
       $validated['method'] = $request->method();
       $validated['user_agent'] = $request->header('user-agent');
-      $validated['date_time'] = date('d-m-Y H:i:s');
+      $validated['date_time'] = date('Y-m-d H:i:s');
       LogActivity::insert($validated);
 
       Log::info($full_name . ' ลงทะเบียนเริ่มต้นใช้งานสำเร็จ');
@@ -148,7 +148,7 @@ class LoginController extends Controller
       $validated['url'] = URL::current();
       $validated['method'] = $request->method();
       $validated['user_agent'] = $request->header('user-agent');
-      $validated['date_time'] = date('d-m-Y H:i:s');
+      $validated['date_time'] = date('Y-m-d H:i:s');
       LogActivity::insert($validated);
 
       Auth::logout();
