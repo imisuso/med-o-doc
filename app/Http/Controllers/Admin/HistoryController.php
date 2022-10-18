@@ -24,7 +24,6 @@ class HistoryController extends Controller
     {
         $logAvtivitys = LogActivity::orderby('date_time', 'desc')->paginate(50);
 
-
         $validated['username'] = Auth::user()->username;
         $validated['full_name'] = Auth::user()->full_name;
         $validated['office_name'] = Auth::user()->office_name;
