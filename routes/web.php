@@ -3,18 +3,13 @@
 use App\Http\Controllers\Admin\CheckUserController;
 use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\ManageController;
+use App\Http\Controllers\Admin\AnnounceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterContrller;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Imports\MemberImportContorller;
 use Illuminate\Support\Facades\Route;
-
-/* Route::get('/', function () {
-    toastr()->info('Have fun storming the castle!', 'Miracle Max Says');
-
-    return view('welcome');
-}); */
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/', 'index')->name('login');
@@ -62,3 +57,10 @@ Route::controller(HistoryController::class)->group(function () {
 Route::get('404',function(){
     return view('errors.404');
 })->name('404');
+
+Route::controller(AnnounceController::class)->group(function (){
+    Route::get('announces', 'index')->name('announces');
+    Route::post('announces', 'store')->name('announce.store');
+    Route::post( 'update-announce-status/{id}','updateStatus')->name('announce.updateStatus');
+    Route::post( 'update-announce/{id}','update')->name('announce.update');
+});
