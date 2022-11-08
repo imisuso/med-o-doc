@@ -26,7 +26,7 @@ class LoginController extends Controller
     */
    public function index(Request $request)
    {
-      /* $checkRecordMember = Member::count();
+       /* $checkRecordMember = Member::count();
         if ($checkRecordMember != 0) {
             if (Auth::check()) {
                 return Redirect::route('documents');
@@ -38,7 +38,12 @@ class LoginController extends Controller
 
             return view('auth.startapp', ['units' => $units]);
         } */
-       $announces = announce::where('statuses','true')->get();
+       try {
+           $announces = announce::where('statuses','true')->get();
+       } catch (\Exception $e) {
+           $announces = [];
+       }
+
       if (Auth::check()) {
          return Redirect::route('documents');
       } else {
