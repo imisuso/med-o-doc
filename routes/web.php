@@ -66,7 +66,7 @@ Route::controller(AnnounceController::class)->group(function () {
    Route::post('update-announce/{id}', 'update')->name('announce.update');
 });
 
-Route::get('reformat-dattime-log', function () {
+Route::get('reformat-datetime-log', function () {
    $logs = LogActivity::where('date_time', 'not like', '2022-%')->get();
    function castDt($dtStr)
    {
