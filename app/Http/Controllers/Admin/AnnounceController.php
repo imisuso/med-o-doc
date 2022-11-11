@@ -38,9 +38,11 @@ class AnnounceController extends Controller
     {
         $validate = $request->validate([
             'topic_announces' => 'required',
-            'statuses' => 'required',
+            //'statuses' => 'required',
         ]);
 
+        $validate['statuses'] = "false";
+        
         announce::create($validate);
 
         $validated['username'] = Auth::user()->username;
