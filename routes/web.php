@@ -67,7 +67,11 @@ Route::controller(AnnounceController::class)->group(function () {
 });
 
 Route::get('reformat-datetime-log', function () {
-   $logs = LogActivity::where('date_time', 'not like', '2022-%')->get();
+   try {
+      $logs = LogActivity::where('date_time', 'not like', '2022-%')->get();
+   } catch (\Exception $e) {
+      $logs = [];
+   }
    function castDt($dtStr)
    {
       return now()->create($dtStr)->format('Y-m-d H:i:s');
