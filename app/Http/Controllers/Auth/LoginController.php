@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Contracts\AuthUserAPI;
 use App\Http\Controllers\Controller;
+use App\Models\announce;
 use App\Models\LogActivity;
 use App\Models\Member;
 use App\Models\Unit;
@@ -25,7 +26,7 @@ class LoginController extends Controller
     */
    public function index(Request $request)
    {
-      /* $checkRecordMember = Member::count();
+       /* $checkRecordMember = Member::count();
         if ($checkRecordMember != 0) {
             if (Auth::check()) {
                 return Redirect::route('documents');
@@ -37,11 +38,16 @@ class LoginController extends Controller
 
             return view('auth.startapp', ['units' => $units]);
         } */
+       try {
+           $announces = announce::where('statuses','true')->get();
+       } catch (\Exception $e) {
+           $announces = [];
+       }
 
       if (Auth::check()) {
          return Redirect::route('documents');
       } else {
-         return view('auth.login');
+         return view('auth.login',['announces' => $announces]);
       }
    }
 
@@ -50,14 +56,14 @@ class LoginController extends Controller
       $sirirajUser = $api->authenticate($request->username, $request->password);
       if ($sirirajUser['reply_code'] != 0) {
          $errors = ['message' => $sirirajUser['reply_text']];
-         Log::critical($request->username . ' ' . $sirirajUser['reply_text']);
+         Log::info($request->username . ' ' . $sirirajUser['reply_text']);
 
          return Redirect::back()->withErrors($errors)->withInput($request->all());
       } else {
          // return $sirirajUser;
          $checkMember = Member::where('org_id', $sirirajUser['org_id'])->where('status', 1)->first();
          if (!$checkMember) {
-            Log::critical($sirirajUser['full_name'] . ' ไม่มีสิทธิ์เข้าถึงระบบ');
+            Log::info($sirirajUser['full_name'] . ' ไม่มีสิทธิ์เข้าถึงระบบ');
             abort(403);
          } else {
             // dd('ok');

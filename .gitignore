@@ -14,6 +14,6 @@ yarn-error.log
 /.vscode
 
 # fir branch dev
-# public/css
-# public/js
-# public/mix-manifest.json
+/public/css
+/public/js
+/public/mix-manifest.json
