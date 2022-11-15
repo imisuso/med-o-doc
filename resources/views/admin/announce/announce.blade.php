@@ -86,7 +86,7 @@
                                 <!-- Put this part before </body> tag -->
                                 <input type="checkbox" id="my-modal-{{$announce->id}}" class="modal-toggle"/>
                                 <div class="modal">
-                                    <div class="modal-box w-9/12 max-w-4xl relative">
+                                    <div class="modal-box w-9/12 max-w-4xl relative bg-white">
                                         <label for="my-modal-{{$announce->id}}"
                                                class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                         <h3 class="text-lg font-bold">แก้ไขข่าวสารที่ต้องการแสดง !</h3>
@@ -95,7 +95,7 @@
                                                 @csrf
                                                 <label for="topic_announces" class="flex flex-col mb-5"> รายละเอียดข่าว
                                                     <textarea name="topic_announces" id="topic_announces"
-                                                              class="mt-2 textarea textarea-bordered text-lg h-auto bg-white">{{$announce->topic_announces}}</textarea>
+                                                              class="mt-2 textarea textarea-bordered text-lg h-40 bg-white">{{$announce->topic_announces}}</textarea>
                                                 </label>
                                                 <div class="flex justify-end">
                                                     <button type="submit"
