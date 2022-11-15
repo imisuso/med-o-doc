@@ -13,7 +13,3 @@ yarn-error.log
 /.idea
 /.vscode
 
-# fir branch dev
-/public/css
-/public/js
-/public/mix-manifest.json
