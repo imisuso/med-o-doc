@@ -26,7 +26,9 @@ class DocumentController extends Controller
     public function index(Request $request)
     {
         $monthsSelectionForm = Month::all();
-        $yearsSelectionForm = Letterreg::select(DB::raw('YEAR(regdate) regyear'))->groupby('regyear')->get();
+        $yearsSelectionForm = cache()->rememberForever('yearsSelectionForm',function(){
+            return Letterreg::select(DB::raw('YEAR(regdate) regyear'))->distinct('regyear')->get();
+        });
         $typesSelectionForm = Type::all();
         $documentCount = Letterreg::count();
 

@@ -66,16 +66,20 @@ Route::controller(AnnounceController::class)->group(function () {
    Route::post('update-announce/{id}', 'update')->name('announce.update');
 });
 
-Route::get('reformat-datetime-log', function () {
-   try {
-      $logs = LogActivity::where('date_time', 'not like', '2022-%')->get();
-   } catch (\Exception $e) {
-      $logs = [];
-   }
-   function castDt($dtStr)
-   {
-      return now()->create($dtStr)->format('Y-m-d H:i:s');
-   }
-   foreach ($logs as $log) $log->update(['date_time' => castDt($log->date_time)]);
-   return redirect()->route('login');
+// Route::get('reformat-datetime-log', function () {
+//    try {
+//       $logs = LogActivity::where('date_time', 'not like', '2022-%')->get();
+//    } catch (\Exception $e) {
+//       $logs = [];
+//    }
+//    function castDt($dtStr)
+//    {
+//       return now()->create($dtStr)->format('Y-m-d H:i:s');
+//    }
+//    foreach ($logs as $log) $log->update(['date_time' => castDt($log->date_time)]);
+//    return redirect()->route('login');
+// });
+Route::get('forgetYear', function () {
+   cache()->forget('yearsSelectionForm');
+   return 'ok';
 });
