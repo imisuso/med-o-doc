@@ -55,7 +55,10 @@ class LoginController extends Controller
    {
       $sirirajUser = $api->authenticate($request->username, $request->password);
       if ($sirirajUser['reply_code'] != 0) {
-         $errors = ['message' => $sirirajUser['reply_text']];
+         $errors = [
+            'message' => $sirirajUser['reply_text'],
+            'reply_code' => $sirirajUser['reply_code']
+         ];
          Log::info($request->username . ' ' . $sirirajUser['reply_text']);
 
          return Redirect::back()->withErrors($errors)->withInput($request->all());
