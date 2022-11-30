@@ -80,9 +80,6 @@ class LoginController extends Controller
                   $updateUser->save();
                }
 
-               $expires = $sirirajUser['password_expires_in_days'];
-               session()->put('expires', $expires);
-
                $validated['username'] = Auth::user()->username;
                $validated['full_name'] = Auth::user()->full_name;
                $validated['office_name'] = Auth::user()->office_name;

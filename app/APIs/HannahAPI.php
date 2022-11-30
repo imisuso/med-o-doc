@@ -22,7 +22,7 @@ class HannahAPI implements AuthUserAPI
       }
       
       if ($dataPassExp['password_expires_in_days'] < 1) {
-         return ['reply_code' => '1', 'reply_text' => 'รหัสผ่านหมดอายุ กด "ลืมรหัสผ่าน?" ด้านล่างเพื่อรีเซ็ตรหัสผ่าน', 'found' => 'false'];
+         return ['reply_code' => '1', 'reply_text' => 'รหัสผ่านหมดอายุ', 'found' => 'false'];
       }
 
       $url = config('app.HAN_API_SERVICE_URL') . 'auth';
