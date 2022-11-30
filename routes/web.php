@@ -79,3 +79,7 @@ Route::controller(AnnounceController::class)->group(function () {
 //    foreach ($logs as $log) $log->update(['date_time' => castDt($log->date_time)]);
 //    return redirect()->route('login');
 // });
+Route::get('forgetYear', function () {
+   cache()->forget('yearsSelectionForm');
+   return 'ok';
+});

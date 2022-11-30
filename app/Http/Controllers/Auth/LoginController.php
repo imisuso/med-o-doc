@@ -26,7 +26,7 @@ class LoginController extends Controller
     */
    public function index(Request $request)
    {
-       /* $checkRecordMember = Member::count();
+      /* $checkRecordMember = Member::count();
         if ($checkRecordMember != 0) {
             if (Auth::check()) {
                 return Redirect::route('documents');
@@ -38,16 +38,16 @@ class LoginController extends Controller
 
             return view('auth.startapp', ['units' => $units]);
         } */
-       try {
-           $announces = announce::where('statuses','true')->get();
-       } catch (\Exception $e) {
-           $announces = [];
-       }
+      try {
+         $announces = announce::where('statuses', 'true')->get();
+      } catch (\Exception $e) {
+         $announces = [];
+      }
 
       if (Auth::check()) {
          return Redirect::route('documents');
       } else {
-         return view('auth.login',['announces' => $announces]);
+         return view('auth.login', ['announces' => $announces]);
       }
    }
 
@@ -79,9 +79,6 @@ class LoginController extends Controller
                   $updateUser->full_name = $sirirajUser['full_name'];
                   $updateUser->save();
                }
-
-               $expires = $sirirajUser['password_expires_in_days'];
-               session()->put('expires', $expires);
 
                $validated['username'] = Auth::user()->username;
                $validated['full_name'] = Auth::user()->full_name;
