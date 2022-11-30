@@ -26,7 +26,7 @@ class LoginController extends Controller
     */
    public function index(Request $request)
    {
-       /* $checkRecordMember = Member::count();
+      /* $checkRecordMember = Member::count();
         if ($checkRecordMember != 0) {
             if (Auth::check()) {
                 return Redirect::route('documents');
@@ -38,16 +38,16 @@ class LoginController extends Controller
 
             return view('auth.startapp', ['units' => $units]);
         } */
-       try {
-           $announces = announce::where('statuses','true')->get();
-       } catch (\Exception $e) {
-           $announces = [];
-       }
+      try {
+         $announces = announce::where('statuses', 'true')->get();
+      } catch (\Exception $e) {
+         $announces = [];
+      }
 
       if (Auth::check()) {
          return Redirect::route('documents');
       } else {
-         return view('auth.login',['announces' => $announces]);
+         return view('auth.login', ['announces' => $announces]);
       }
    }
 
@@ -55,10 +55,7 @@ class LoginController extends Controller
    {
       $sirirajUser = $api->authenticate($request->username, $request->password);
       if ($sirirajUser['reply_code'] != 0) {
-         $errors = [
-            'message' => $sirirajUser['reply_text'],
-            'reply_code' => $sirirajUser['reply_code']
-         ];
+         $errors = ['message' => $sirirajUser['reply_text']];
          Log::info($request->username . ' ' . $sirirajUser['reply_text']);
 
          return Redirect::back()->withErrors($errors)->withInput($request->all());

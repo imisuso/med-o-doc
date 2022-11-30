@@ -18,7 +18,7 @@ class HannahAPI implements AuthUserAPI
       $dataPassExp = json_decode($checkPassExp->getBody(), true);
 
       if (!$dataPassExp['found']) {
-         return ['reply_code' => '1', 'reply_text' => 'ตรวจสอบ username หรือ password อีกครั้ง', 'found' => 'false'];
+         return ['reply_code' => '1', 'reply_text' => 'ตรวจสอบ username อีกครั้ง', 'found' => 'false'];
       }
       
       if ($dataPassExp['password_expires_in_days'] < 1) {
