@@ -17,7 +17,6 @@ class HannahAPI implements AuthUserAPI
 
       $dataPassExp = json_decode($checkPassExp->getBody(), true);
 
-      logger($dataPassExp);
       if (!$dataPassExp['found']) {
          return ['reply_code' => '1', 'reply_text' => 'ตรวจสอบ username หรือ password อีกครั้ง', 'found' => 'false'];
       }
@@ -45,8 +44,6 @@ class HannahAPI implements AuthUserAPI
       $data['remark'] = $data['office_name'] . ' ' . $data['department_name'];
       $data['name_en'] = $data['full_name_en'];
       $data['reply_code'] = 0;
-
-      //         Log::info($data);
 
       return $data;
    }
