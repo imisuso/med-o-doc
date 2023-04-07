@@ -20,6 +20,7 @@ class User extends Authenticatable
         'org_id',
         'is_admin',
         'status',
+        'office_name'
     ];
 
     /**

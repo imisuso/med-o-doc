@@ -29,16 +29,16 @@
       @endif
       @endif
    </p>
-   <p class="flex flex-row">
+   <p class="flex flex-col gap-3">
       เอกสารแนบ :
       @if ($registerFound->regdoc == null && $registerFound->regdoc2 == null)
       ไม่มีเอกสารแนบ
       @else
-      <span class="mx-3">
+      <span class="mx-3 flex flex-row">
          @if ($registerFound->regdoc == null)
 
          @else
-         <a href="{{$registerFound->regdoc_url}}" target="_blank">
+         <a class="mr-3" href="{{$registerFound->regdoc_url}}" target="_blank">
             @if (pathinfo($registerFound->regdoc, PATHINFO_EXTENSION) == 'pdf')
             <svg xmlns="http://www.w3.org/2000/svg" class=" w-8 fill-red-500 " viewBox="0 0 384 512">
                <path
@@ -80,15 +80,16 @@
             </svg>
             @endif
          </a>
+         ชื่อไฟล์ : {{$registerFound->regdoc}}
          @endif
       </span>
 
-      <span class="mx-3">
+      <span class="mx-3 flex flex-row">
          @if ($registerFound->regdoc2 == null)
          <p>
          </p>
          @else
-         <a href="{{$registerFound->regdoc2_url}}" target="_blank">
+         <a class="mr-3" href="{{$registerFound->regdoc2_url}}" target="_blank">
             @if (pathinfo($registerFound->regdoc2, PATHINFO_EXTENSION) == 'pdf')
             <svg xmlns="http://www.w3.org/2000/svg" class=" w-8 fill-red-500 " viewBox="0 0 384 512">
                <path
@@ -130,6 +131,7 @@
             </svg>
             @endif
          </a>
+         ชื่อไฟล์ : {{$registerFound->regdoc2}}
          @endif
       </span>
       @endif

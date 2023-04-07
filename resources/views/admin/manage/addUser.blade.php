@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-control w-full mr-4">
                     <label class="label">
-                        <span class="label-text text-slate-900 text-lg font-medium">สิทธิ์ผู้ใช้งาน <b class="text-rose-600">*</b></span>
+                        <span class="label-text text-slate-900 text-lg font-medium">หน่วยงาน <b class="text-rose-600">*</b></span>
                     </label>
                     <select disabled required name="office_name[]" id="office_name0"
                         class="select select-bordered disabled:bg-slate-200 bg-white border-slate-400 text-lg font-normal w-full">
