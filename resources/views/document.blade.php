@@ -13,7 +13,7 @@
 <section id="header" class="flex flex-col items-start lg:flex-row lg:justify-between md:flex-row md:justify-between mb-4">
     <div class="flex flex-col">
         <h1 class="text-xl font-semibold mb-2">ค้นหาเอกสาร</h1>
-        <h2 class=" text-fuchsia-600">จำนวนเอกสารทั้งหมด {{number_format($documentCount)}} เรื่อง</h2>
+        <h2 class=" text-fuchsia-600">จำนวนเอกสารที่ลงทะเบียนส่ง มีทั้งหมด {{number_format($documentCount)}} เรื่อง</h2>
     </div>
     <div class="flex flex-col items-start md:items-end lg:items-end">
         @if(Route::is('document.search'))
@@ -91,7 +91,7 @@
                             class="select select-bordered bg-white border-slate-400 col-span-2 text-lg font-medium">
                             <option value="" selected>ปี</option>
                             @foreach($yearsSelectionForm as $resultyear)
-                            @if($resultyear->regyear == "0000")
+                            @if(strlen($resultyear->regyear) != 4 || $resultyear->regyear == "0000" )
                             @else
                             <option value="{{$resultyear->regyear}}" {{ (old("startYear")==$resultyear->regyear ?
                                 "selected": "") }}> {{ $resultyear->regyear + 543 }} </option>
@@ -113,11 +113,11 @@
                             disabled>
                             <option value="" selected>ปี</option>
                             @foreach($yearsSelectionForm as $resultyear)
-                            @if($resultyear->regyear == "0000")
-                            @else
-                            <option value="{{$resultyear->regyear}}" {{ (old("endYear")==$resultyear->regyear ?
+                                @if(strlen($resultyear->regyear) != 4 || $resultyear->regyear == "0000" )
+                                @else
+                                    <option value="{{$resultyear->regyear}}" {{ (old("startYear")==$resultyear->regyear ?
                                 "selected": "") }}> {{ $resultyear->regyear + 543 }} </option>
-                            @endif
+                                @endif
                             @endforeach
                         </select>
                         <button type="submit" id="submitDoc"

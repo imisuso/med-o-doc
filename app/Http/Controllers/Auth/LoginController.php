@@ -61,6 +61,7 @@ class LoginController extends Controller
          return Redirect::back()->withErrors($errors)->withInput($request->all());
       } else {
          // return $sirirajUser;
+//          logger($sirirajUser['org_id']);
          $checkMember = Member::where('org_id', $sirirajUser['org_id'])->where('status', 1)->first();
          if (!$checkMember) {
             Log::info($sirirajUser['full_name'] . ' ไม่มีสิทธิ์เข้าถึงระบบ');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jobunit;
 use App\Models\Letterreg;
+use App\Models\Lettersend;
 use App\Models\Letterunit;
 use App\Models\LogActivity;
 use App\Models\Month;
@@ -26,9 +27,9 @@ class DocumentController extends Controller
     public function index(Request $request)
     {
         $monthsSelectionForm = Month::all();
-        $yearsSelectionForm = cache()->rememberForever('yearsSelectionForm',function(){
-            return Letterreg::select(DB::raw('YEAR(regdate) regyear'))->distinct('regyear')->get();
-        });
+
+        $yearsSelectionForm= Lettersend::select('sendyear AS regyear')->distinct()->get(['sendyear']);
+
         $typesSelectionForm = Type::all();
         $documentCount = Letterreg::count();
 
