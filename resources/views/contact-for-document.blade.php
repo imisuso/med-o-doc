@@ -14,7 +14,7 @@
        {{--  <p class="text-6xl text-blue-800 font-bold font-k2d pb-7 text-shadow-md">404</p>--}}
         <p class="text-4xl text-gray-800 font-sarabun pb-6 text-shadow-md">ต้องการเอกสารแนบ</p>
         <p class="text-2xl text-center text-gray-700 font-sarabun w-3/5 leading-loose pb-3">
-            ติดต่อขอไฟล์ได้ที่ <span class="text-red-500">หน่วยเวชสารสนเทศ ภาควิชาอายุรศาสตร์ โทร. 02-4198260 (ในเวลาราชการ)</span>
+            ติดต่อขอไฟล์ได้ที่ <span class="text-red-500">หน่วยสารสนเทศ ภาควิชาอายุรศาสตร์ โทร. 02-4198260 ต่อ 111 (ในเวลาราชการ)</span>
         </p>
         <a href="{{ route('documents') }}" onclick="SetTt()" class="pb-12 font-sarabun text-xl text-blue-800
       hover:text-red-500 hover:text-shadow-md">กลับสู่หน้าหลัก</a>

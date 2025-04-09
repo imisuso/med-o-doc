@@ -14,7 +14,7 @@
       <p class="text-6xl text-blue-800 font-bold font-k2d pb-7 text-shadow-md">500</p>
       <p class="text-4xl text-gray-800 font-k2d pb-6">Server Error</p>
       <p class="text-xl text-center text-gray-700 font-sarabun w-2/5 leading-loose pb-3">Server Error กรุณาติดต่อผู้ดูแลระบบ
-         <span class="font-bold text-red-500">หน่วยเวชสารสนเทศ ภาควิชาอายุรศาสตร์ </span>
+         <span class="font-bold text-red-500">หน่วยสารสนเทศ ภาควิชาอายุรศาสตร์ </span>
       </p>
       <a href="{{ route('documents') }}" onclick="SetTt()" class="pb-12 font-sarabun text-xl text-blue-800
       hover:text-red-500 hover:text-shadow-md">กลับสู่หน้าหลัก</a>
