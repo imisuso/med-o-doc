@@ -225,7 +225,7 @@ return [
         'Session' => Illuminate\Support\Facades\Session::class,
         'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
     ],
-
+    'AUTH_USER_PROVIDER' => env('AUTH_USER_PROVIDER', '\App\APIs\FakeUserAPI'),
     //api
     'HAN_API_SERVICE_URL' => env('HAN_API_SERVICE_URL'),
     'HAN_API_SERVICE_ADD_USER_URL' => env('HAN_API_SERVICE_ADD_USER_URL'),
@@ -234,4 +234,8 @@ return [
    'HAN_API_SERVICE_EXPIRES' => env('HAN_API_SERVICE_ADD_USER_URL'),
     // change password URL
     'sirirajADurl' => 'https://si-eservice3.si.mahidol.ac.th/selfservice/',
+    //Portal
+    'SIMED_PROTAL_API_SERVICE_URL' => env('SIMED_PROTAL_API_SERVICE_URL'),
+    'SIMED_PROTAL_API_SERVICE_TOKEN' => env('SIMED_PROTAL_API_SERVICE_TOKEN'),
+    'SIMED_PROTAL_API_AUTH_SERVICE_URL' => env('SIMED_PROTAL_API_AUTH_SERVICE_URL'),
 ];
