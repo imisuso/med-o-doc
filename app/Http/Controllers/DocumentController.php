@@ -193,9 +193,10 @@ class DocumentController extends Controller
             } else {
                 $html .= '<option id="option" value="'.$list->unitid.'" >'.$list->unitname.'</option>';
             }
-            echo $list->unitid.'<br>';
+           echo $list->unitid.'<br>';
         }
-        echo $html;
+       // echo $html;
+        return response($html, 200, ['Content-Type' => 'text/html; charset=utf-8']);
     }
 
     public function autocompleteUnitOutter(Request $request)
